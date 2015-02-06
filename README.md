@@ -1,4 +1,6 @@
 # gh-util
 Github command line utilities
 
-1. `$  gh-util list-prs` lists the PRs that have been merged on a PR since the latest release
+* `$ gh-util list-prs`
+
+      Lists the pull requests that have been merged since the latest release of a project.
