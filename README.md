@@ -1,4 +1,6 @@
 # gh-util
+`pip install https://github.com/rmcgibbo/gh-util/archive/master.zip`
+
 Github command line utilities
 
 * `$ gh-util list-prs`
