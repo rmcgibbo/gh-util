@@ -15,14 +15,12 @@ def execute(args, parser):
         parser.error('repo spec must contain single "/".')
 
     repo = gh.repository(user, repo)
-    release = next(repo.iter_releases(number=1))
+    release = next(repo.releases(number=1))
     print('Listing merged PRs since: %s\n' % release.name)
 
-    for c in repo.iter_commits(since=release.created_at, until=datetime.now()):
+    for c in repo.commits(since=release.created_at, until=datetime.now()):
         match = re.match('Merge pull request #(\d+)', c.commit.message)
         if match:
             number = int(match.group(1))
             lines = [e.strip() for e in c.commit.message.splitlines() if len(e.strip()) > 0]
             print('PR #%d: %s' % (number, lines[1]))
-
-
